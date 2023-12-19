@@ -16,8 +16,28 @@ class Book:
         return f'Author: {self.getAuthor()}\nYear: {self.getYear()}\nName: {self.getName()}\nIsb: {self.getIsb()}'
 
 class Library:
-    pass
-        
-book1 = Book('Xusanboy Tursunov', 2023, 'U bu siz emas', 1)
 
-print(book1.getInfo())
+    def __init__(self) -> None:
+        self.books = []
+
+    def addBook(self, book):
+        self.books.append(book)
+
+    def removeBook(self, book):
+        self.books.remove(book)
+    
+    def show(self):
+        return self.books
+        
+book1 = Book('Author1', 2023, 'Name1', 1)
+book2 = Book('Author2', 2022, 'Name2', 2)
+book3 = Book('Author3', 2021, 'Name3', 3)
+
+library = Library()
+
+library.addBook(book1)
+library.addBook(book2)
+library.addBook(book3)
+
+for book in library.show():
+    print(book.getInfo())
